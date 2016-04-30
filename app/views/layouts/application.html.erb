@@ -9,15 +9,25 @@
 
   <script>
     // Default to loading from "assets"
-    System.config({
-      baseURL: "/assets"
-    });
+    // System.config({
+    //   baseURL: "/assets"
+    // });
+
+    // Define packages for different apps, and where to find them.
+    // System.config({
+    //   packages: {
+    //     "app": {},
+    //   },
+    //   paths: {
+    //     "app/": "assets/app/"
+    //   }
+    // });
 
     // Define bundles
     System.config({
       defaultJSExtensions: true,
       bundles: {
-        "app": ["app/main", "app/geom", "app/math"]
+        "assets/app": ["app/main", "app/geom", "app/math"]
       }
     });
   </script>

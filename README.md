@@ -16,7 +16,7 @@ defined in `/app/assets/javascripts/app.es6`.
 
   - [ ] Generate the bundle config for SystemJS automatically.
   - [ ] Remove the need for `System.defaultJSExtensions = true`.
-  - [ ] Look into using packages to remove SystemJS config options for
+  - [x] Look into using packages to remove SystemJS config options for
   `baseURL: "/assets"`
 
 ## Running
