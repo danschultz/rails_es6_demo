@@ -1,0 +1,23 @@
+// Generate asset bundles for SystemJS
+
+<%
+  env = Rails.application.assets
+
+  assets = env.each_logical_path("*.es6")
+    .map { |path| env[path] }
+    .select { |asset| asset.metadata[:required].size > 0 }
+
+  bundles = assets.reduce(Hash.new) { |memo, asset|
+    bundle = asset.logical_path.match(/^(.+?)\./)[1]
+    required_paths = asset.metadata[:required]
+      .map { |path| env[path].logical_path }
+      .map { |path| path.match(/^(.+?)\./)[1] }
+
+    memo["assets/#{bundle}"] = required_paths
+    memo
+  }
+
+  config = {bundles: bundles}
+%>
+
+System.config(<%= JSON.pretty_generate(config) %>);
