@@ -16,3 +16,6 @@ bundle/
 /log/*
 !/log/.keep
 /tmp
+
+# IDEs
+.idea
