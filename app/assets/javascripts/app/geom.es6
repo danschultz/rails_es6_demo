@@ -1,4 +1,4 @@
-import * as math from "./math.js"
+import * as math from "./math";
 
 export class Point {
   constructor(x, y) {

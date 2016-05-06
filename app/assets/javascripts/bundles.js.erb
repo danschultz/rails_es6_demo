@@ -3,17 +3,27 @@
 <%
   env = Rails.application.assets
 
-  assets = env.each_logical_path("*.es6")
+  extensions = ["*.es6", "*.js"]
+  matcher = Regexp.new("^#{env.root}/app/assets/javascripts/[\\w-]+\\.")
+
+  def filter_includes(includes)
+    includes.take(includes.size - 1).uniq
+  end
+
+  assets = extensions
+    .map { |ext| env.each_logical_path(ext).to_a }.flatten
+    .select { |path| path != "bundles.js" && env.resolve(path).match(matcher) != nil }
     .map { |path| env[path] }
-    .select { |asset| asset.metadata[:required].size > 0 }
+    .select { |asset| filter_includes(asset.included).size > 0 }
 
   bundles = assets.reduce(Hash.new) { |memo, asset|
     bundle = asset.logical_path.match(/^(.+?)\./)[1]
-    required_paths = asset.metadata[:required]
+    required_paths = filter_includes(asset.included)
       .map { |path| env[path].logical_path }
       .map { |path| path.match(/^(.+?)\./)[1] }
+      .map { |path| "#{path}.js" }
 
-    memo["assets/#{bundle}"] = required_paths
+    memo["#{bundle}"] = required_paths.uniq
     memo
   }
 

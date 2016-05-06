@@ -95,7 +95,7 @@ GEM
       railties (= 4.2.6)
       sprockets-rails
     rails-assets-react (15.0.1)
-    rails-assets-system.js (0.19.0)
+    rails-assets-system.js (0.19.26)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -160,7 +160,7 @@ DEPENDENCIES
   jquery-rails
   rails (= 4.2.6)
   rails-assets-react!
-  rails-assets-system.js!
+  rails-assets-system.js (~> 0.19.26)!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

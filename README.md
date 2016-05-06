@@ -6,7 +6,7 @@ JS packages such as React and SystemJS.
 JS files ending with `.es6` will be compiled using the `sprockets-es6` gem, see
 `geom.es6`, `math.es6` and `main.es6` in `/app/assets/javascripts/app/`.
 Multiple ES6 files can be bundled by using the Sprockets `//= require`
-declarations, see `/app/assets/javascripts/app.es6`.
+declarations, see `/app/assets/javascripts/app.js`.
 
 The application layout loads SystemJS, sets up its configuration, and loads the
 `assets/bundles.js` file which is auto-generated using an ERB template. This

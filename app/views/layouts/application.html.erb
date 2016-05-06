@@ -9,7 +9,16 @@
 
   <script>
     System.config({
-      defaultJSExtensions: true
+      defaultJSExtensions: true,
+      baseURL: "assets/",
+      meta: {
+        "react": {
+          format: "global"
+        }
+      },
+      paths: {
+        "react": "vendor.js"
+      }
     });
   </script>
 

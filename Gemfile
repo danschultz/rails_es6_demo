@@ -5,7 +5,7 @@ gem 'sprockets', '>= 3.0.0'
 gem 'sprockets-es6'
 
 source 'https://rails-assets.org' do
-  gem 'rails-assets-system.js'
+  gem 'rails-assets-system.js', '~> 0.19.26'
   gem 'rails-assets-react'
 end
 
