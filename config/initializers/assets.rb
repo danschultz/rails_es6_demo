@@ -3,7 +3,7 @@
 Rails.application.config.assets.configure do |env|
   # If you are using Sprockets 4, use `Sprockets::BabelProcessor`
   # instead of `Sprockets::ES6`.
-  es6amd = Sprockets::ES6.new('modules' => 'system', 'moduleIds' => true)
+  es6amd = Sprockets::ES6.new('modules' => 'system', 'moduleIds' => true, 'externalHelpers' => true)
 
   # Replace the default transformer to transpile each `.es6` file with `define`
   # and `require` from the AMD spec.
@@ -20,4 +20,4 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( system.js bundles.js vendor.js )
+Rails.application.config.assets.precompile += %w( system.js bundles.js vendor.js system.js/system.src.js )
